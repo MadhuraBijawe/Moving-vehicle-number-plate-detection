@@ -1,0 +1,53 @@
+{% extends 'adminbase.html' %}
+{% block title %} View User {% endblock %}
+{% load static %}
+{% block content %}
+        
+<div class="col-lg-12 col-xl-11">
+    <br/><br/>     
+  <div class=" text-black" style="border-radius: 25px;">
+      <div class=" p-md-5">
+      <div class="row justify-content-center">
+          <div class="col-lg-6 shadow-3" style="border-right: 1px solid #dadce0">
+              <h1 class="display-6 fw-bold" style="color: skyblue">We Care
+                  <br />
+                  <small class="text-muted">for you!!</small>
+              </h1> 
+              <div class="img-box">
+                <img src="{% static "images/about-img.gif" %}" alt="">
+              </div>
+          </div>
+         
+          <div class="col-lg-6 pl-3 pr-3">
+              <h2 class="text-center my-3">Welcome!</h2>
+              <h6 class="text-center my-3">View All user</h6>
+
+              <table class="table">
+                <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Action</th>
+                
+                
+                </tr>
+                {% for result in list.items %}
+                <tr>
+                <td>{{result.name}}</td>
+                <td>{{result.contact}}</td>
+                <td>{{result.email}}</td>
+                
+                <td><a href="doremove?uid={{result.uid}}"><input type="submit" value="Remove"></a></td> 
+                
+                
+                </tr>
+                  
+                 {% endfor %}
+                </table>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+</div>
+    {% endblock %}

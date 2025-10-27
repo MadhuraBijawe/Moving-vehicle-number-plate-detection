@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Users {% endblock %}
+
+{% block content %}
+    <div class="container mt-5 pt-5 vh-100">
+        <h2 class="text-danger fw-bold text-center m-3">User List</h2>
+        <table class="table table-striped mt-5">
+            <thead>
+              <tr>
+                <th scope="col" class="text-danger fs-4">ID</th>
+                <th scope="col" class="text-danger fs-4">First</th>
+                <th scope="col" class="text-danger fs-4">Last</th>
+                <th scope="col" class="text-danger fs-4">email</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th scope="row">{{user.id}}</th>
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.last_name}}</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

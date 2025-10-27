@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About {% endblock%}
+{% block content %}
+<div class="container-xxl py-5 mt-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 pt-4" style="min-height: 400px;">
+                <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{% static "img\about.jpg" %}" style="object-fit: cover;" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="mb-4"><span class="text-danger">Vehicle Number Detection System</span> Is The Best Place For You</h1>
+                <p class="mb-4">At the heart of our success lies our commitment to seamless integration and user-centric design. Whether you're a traffic management authority, a parking facility operator, a security professional, or a business owner with a fleet of vehicles, our platform empowers you with the tools you need to streamline operations, enhance security, and drive productivity.</p>
+                <div class="row g-4 mb-3 pb-3">
+                    <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="d-flex">
+                            <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                                <span class="fw-bold text-secondary">01</span>
+                            </div>
+                            <div class="ps-3">
+                                <h6>License Plate Recognition</h6>
+                                <span>The core service of a vehicle number detection website is to recognize and extract license plate numbers from images or video streams of vehicles.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="d-flex">
+                            <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                                <span class="fw-bold text-secondary">02</span>
+                            </div>
+                            <div class="ps-3">
+                                <h6>Security and Surveillance</h6>
+                                <span>Vehicle number detection technology can be used for security and surveillance purposes. The website can help identify vehicles entering or leaving restricted areas, track stolen vehicles, and assist in law enforcement investigations.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="d-flex">
+                            <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                                <span class="fw-bold text-secondary">03</span>
+                            </div>
+                            <div class="ps-3">
+                                <h6>Custom Solutions</h6>
+                                <span>Depending on the specific requirements of users, the website may offer custom solutions tailored to industries such as transportation, logistics, law enforcement, parking management, toll collection, and smart city initiatives.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

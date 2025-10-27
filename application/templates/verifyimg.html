@@ -1,0 +1,105 @@
+{% extends 'base2.html' %}
+{% block title %} Register Face {% endblock %}
+{% load static %}
+{% block content %}
+
+
+<!-- upload_and_display.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Face</title>
+</head>
+<body>
+
+<div class="col-lg-12 col-xl-11">
+    <br/><br/>     
+    <div class=" text-black" style="border-radius: 25px;">
+        <div class=" p-md-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 shadow-3" style="border-right: 1px solid #dadce0">
+                    <h1 class="display-6 fw-bold" style="color: skyblue">We Care
+                        <br />
+                        <small class="text-muted">for you!!</small>
+                    </h1> 
+                    <div class="img-box">
+                        <img src="{% static "images/about-img.gif" %}" alt="">
+                    </div>
+                </div>
+            
+                <div class="col-lg-6 pl-3 pr-3">
+                    <h2 class="text-center my-3">Welcome!</h2>
+                    <h6 class="text-center my-3">Verify Your Face</h6>
+                    <form id="uploadForm" method="post" enctype="multipart/form-data" action="{% url 'verifyimg1' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="video">Upload Video:</label>
+                            <input type="file" id="video" name="video" accept="video/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Verify Face</button>
+                    </form><br><br>
+                    <h2>Camera Window</h2>
+<form action="{% url 'detect_face' %}">
+<button id="openCameraButton" class="btn btn-primary">Open Camera</button>
+<form>
+<!--
+<script>
+// Function to open the camera window
+function openCamera() {
+    // Create video element to display camera feed
+    const video = document.createElement('video');
+    video.setAttribute('id', 'cameraFeed');
+    video.setAttribute('width', '500');
+    video.setAttribute('height', '400');
+    video.setAttribute('autoplay', 'true');
+
+    // Access the user's camera and display the video feed
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            video.srcObject = stream;
+            document.body.appendChild(video);
+        })
+        .catch(error => {
+            console.error('Error accessing the camera:', error);
+        });
+}
+
+// Event listener for the button to open the camera window
+document.getElementById('openCameraButton').addEventListener('click', openCamera);
+</script>
+
+--> <h1>Face Detection</h1>
+<button id="startDetection">Start Face Detection</button>
+
+<script>
+    $(document).ready(function() {
+        // Add click event listener to the startDetection button
+        $('#startDetection').click(function() {
+            // Send an AJAX request to trigger the detect_face function
+            $.ajax({
+                type: "GET",  // Change the method if needed
+                url: "/detect_face/",  // URL of the detect_face endpoint
+                success: function(response) {
+                    // Log the response from the server
+                    console.log(response);
+                },
+                error: function(xhr, errmsg, err) {
+                    // Handle any errors that occur during the request
+                    console.error(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

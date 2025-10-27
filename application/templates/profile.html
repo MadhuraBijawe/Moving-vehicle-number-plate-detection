@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <div class="container mt-5 p-5">
+        <div>
+            <h1 class="text-center" style="font-size:32px; font-weight: bold; margin: 0 0 20px; color: red">PROFILE</h1>
+        </div>
+        <div class="row" style="background: linear-gradient(to right, #ee5a6f, #f29263);
+                color: #fff;
+                border-radius: 4px 4px 0 0;
+                padding: 40px;"
+                >
+                <div class="col-md-4" style="text-align: center">
+                    <a href="#">
+                        <dotlottie-player
+                            src="https://lottie.host/b9c59530-d754-4cb0-b6c5-1d5bf6a1e906/87kpXagbH0.json"
+                            background="transparent"
+                            speed="1"
+                            style="width: 300px; height: 300px"
+                            loop
+                            autoplay>
+                        </dotlottie-player>
+                    </a>
+                    <h1>{{request.user.first_name}}  {{request.user.last_name}}</h1>
+                    <p>{{request.user.email}}</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="row p-4 g-4">
+                        <div class="col-sm-5">
+                            <p class="mb-1 fw-600">First Name</p>
+                            <h4 class="text-muted fw-bold">{{request.user.first_name}}</h4>
+                        </div>
+                        <div class="col-sm-2">
+
+                        </div>
+                        <div class="col-sm-5">
+                            <p class="mb-1 f-w-600">Last Name</p>
+                            <h4 class="text-muted fw-bold">{{request.user.last_name}}</h4>
+                        </div>
+                    </div>
+                    <div class="row p-4">
+                        <div class="col-sm-5">
+                            <p class="mb-1 f-w-600">Email</p>
+                            <h4 class="text-muted fw-bold">{{request.user.email}}</h4>
+                        </div>
+                        <div class="col-sm-2">
+
+                        </div>
+                        <div class="col-sm-5">
+                            <p class="mb-1 f-w-600">User ID</p>
+                            <h4 class="text-muted fw-bold">{{request.user.id}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mt-5">
+                    <a href="{% url "update" %}" class="btn btn-primary">Update Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

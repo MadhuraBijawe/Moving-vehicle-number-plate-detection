@@ -1,0 +1,77 @@
+{% extends 'base2.html' %}
+{% block title %} Register Face {% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-12 col-xl-11">
+    <br/><br/>     
+    <div class=" text-black" style="border-radius: 25px;">
+        <div class=" p-md-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 shadow-3" style="border-right: 1px solid #dadce0">
+                    <h1 class="display-6 fw-bold" style="color: skyblue">We Care
+                        <br />
+                        <small class="text-muted">for you!!</small>
+                    </h1> 
+                    <div class="img-box">
+                        <img src="{% static "images/about-img.gif" %}" alt="">
+                    </div>
+                </div>
+            
+                <div class="col-lg-6 pl-3 pr-3">
+                    <h2 class="text-center my-3">Welcome!</h2>
+                    <h6 class="text-center my-3">View All user</h6>
+                    <form action="{% url 'capture_image' %}" method="post">
+                        {% csrf_token %}
+                        <label for="id_input">Enter ID:</label>
+                        <input type="text" id="id_input" name="id_input">
+                        <button type="submit">Capture Images</button>
+                    </form>
+
+
+                    
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const captureBtn = document.getElementById('capture-btn');
+        const registerForm = document.getElementById('register-form');
+        const resultMsg = document.getElementById('result-msg');
+
+        captureBtn.addEventListener('click', function() {
+            const video = document.createElement('video');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.play();
+                    setTimeout(function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        const context = canvas.getContext('2d');
+                        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        const imageDataUrl = canvas.toDataURL('image/jpeg');
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = 'image_data_url';
+                        input.value = imageDataUrl;
+                        registerForm.appendChild(input);
+                        registerForm.submit();
+                    }, 1000); // Adjust delay as needed
+                })
+                .catch(function(error) {
+                    console.error('Error accessing the camera:', error);
+                    resultMsg.textContent = 'Error accessing the camera';
+                });
+        });
+    });
+</script>
+
+{% endblock %}

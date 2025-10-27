@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Services {% endblock%}
+{% block content %}
+<div class="service py-5 mt-5" style="background-image: url('{% static "back.jpg" %}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h1 class="mb-5 fw-bold" style="color: white;">VEHICLE DETECTION</h1>
+        <h1 class="mb-5 fw-bold" style="color: white;">LICENSE NUMBER PLATE RECOGNITION</h1>
+    </div>
+    
+
+    <div class="row g-4 wow fadeInUp">
+        <div class="d-flex justify-content-center">
+            <div class="w-48 text-center p-4 rounded-4 shadow-lg" style="background-color: #800000; margin-right: 30px;">
+                <a href="{% url 'imagebased' %}" class="text-decoration-none text-white">
+                    <i class="fa fa-car-side fa-2x mb-3 d-block" style="color: white;"></i>
+                    <h4 class="m-0">(IMAGE BASED)</h4>
+                </a>
+            </div>
+            <div class="w-48 text-center p-4 rounded-4 shadow-lg" style="background-color: #800000;">
+                <a href="{% url 'videobased' %}" class="text-decoration-none text-white">
+                    <i class="fa fa-car fa-2x mb-3 d-block" style="color: white;"></i>
+                    <h4 class="m-0">(VIDEO BASED)</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>
+    <div class="text-center mt-4">
+        <h3 style="color: red; font-size: 30px; margin-bottom: 20px;">Upload the image</h3>
+
+        <form method="post" action="{% url 'imagebased1' %}" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+            <center><input type="file" name="image" id="upload" class="inputfile" />
+            <label for="upload" class="upload-label">Choose</label>
+            <button type="submit" class="submit-btn">Upload</button>
+        </form>
+    </div>
+
+    
+<br><br><br><br>
+<div class="container">
+    <div class="row">
+        <!-- Original Image Column -->
+        <div class="col-md-6 text-center">
+            <h1>Original Image</h1>
+            <div class="image-container">
+                <img src="data:image/png;base64,{{ original_image }}" alt="Original Image" class="animation-scale" width="400" height="300">
+            </div>
+        </div>
+        <!-- License Plate Detection Column -->
+        <div class="col-md-6 text-center">
+            <h1 class="mt-md-0 mt-5">License Plate Detection</h1>
+            <div class="image-container">
+                <img src="data:image/png;base64,{{ detected_image }}" alt="Detected Image" class="animation-scale" width="400" height="300">
+            </div>
+            <h2>License Plate Number: {{ license_plate }}</h2>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %} User Home {% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/@dotlottie/dotlottie-player/dist/index.js"></script>
+
+{% block content %}
+       
+    
+<section class="about_section layout_padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-6">
+        <div class="detail-box">
+          <h2>
+            About us
+          </h2>
+          <p style="  text-align: justify;
+          text-justify: inter-word;">
+           
+A Secured e-KYC (Know Your Customer) system using video frame analysis employs facial recognition and biometric authentication techniques to verify the identity of users. The system captures video frames, detects faces, extracts facial features, and analyzes them to authenticate users securely. This process involves algorithms for face detection, feature extraction, and verification, ensuring high accuracy and reliability. Additionally, encryption techniques are applied to protect sensitive user data, enhancing security. By leveraging video frame analysis, the e-KYC system enables efficient and reliable identity verification, enhancing security measures for online transactions and services.
+          </p>
+
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-6">
+        <br/><br/>  
+        <div class="img-box">
+          <img src="{% static "images/about-img.gif" %}" alt="" class="remove-white-background">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end about section -->
+{% endblock %}

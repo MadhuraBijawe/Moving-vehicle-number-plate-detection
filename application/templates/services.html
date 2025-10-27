@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Services {% endblock%}
+{% block content %}
+<div class="container-xxl service py-5 mt-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-5 text-danger fw-bold">Our Services</h1>
+        </div>
+        <div class="row g-4 wow fadeInUp">
+
+            <div class="col-lg-5">
+                <div class="w-100 text-start p-4 mb-4 rounded-4 shadow-lg custom-card" style="background-color: #ff8c00;">
+                    <center>  <i class="fas fa-camera fa-2x me-3" style="color: white;"></i>
+                    <a href="{% url 'imagebased' %}" class="text-decoration-none text-white">
+                        <h4 class="m-0">License Plate Recognition (Image Based)</h4>
+                    </a>
+                </div>
+                <div class="w-100 text-start p-4 mb-4 rounded-4 shadow-lg custom-card" style="background-color: #4682b4;">
+                    <center><i class="fas fa-video fa-2x me-3" style="color: white;"></i>
+                    <a href="{% url 'videobased' %}" class="text-decoration-none text-white">
+                        <h4 class="m-0">License Plate Recognition (Video Based)</h4>
+                    </a>
+                </div>
+                <div class="w-100 text-start p-4 mb-4 rounded-4 shadow-lg custom-card" style="background-color: #6b8e23;">
+                    <center><i class="fas fa-cog fa-2x me-3" style="color: white;"></i>
+                    <h4 class="m-0 text-white">Custom Solutions</h4>
+                </div>
+            </div>
+            
+            <div class="col-lg-1">
+
+            </div>
+            <br>
+            <div class="col-lg-6" style="font-size:20px;">
+                <h3 class="mb-3">1K+ happy clients</h3>
+                <p class="mb-4">Our advanced algorithms swiftly capture license plate numbers from images and video streams, providing instant access to vital vehicle information. From real-time traffic monitoring to precise parking management, our website puts the power of intelligent vehicle detection at your fingertips.</p>
+                <p><i class="fa fa-check text-success me-3"></i>Security</p>
+                <p><i class="fa fa-check text-success me-3"></i>Surveillance</p>
+                <p><i class="fa fa-check text-success me-3"></i>Access Control</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
